@@ -1,0 +1,12 @@
+name: "cars"
+output_dir: "docs"
+navbar:
+  title: "TMA4268"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Untitled"
+      href: Untitled.html
+output:
+    html_document:
+theme: cosmo
