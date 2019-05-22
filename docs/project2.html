@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Håvard Bjørkøy, Oliver Byhring and Jørgen Riseth" />
+
+
+<title>Compulsory Exercise 2</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">TMA4268 - Statistical Learning</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="project1.html">Exercise 1</a>
+</li>
+<li>
+  <a href="project2.html">Exercise 2</a>
+</li>
+<li>
+  <a href="project3.html">Exercise 3</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Compulsory Exercise 2</h1>
+<h3 class="subtitle">TMA4268 Statistical Learning V2018</h3>
+<h4 class="author">Håvard Bjørkøy, Oliver Byhring and Jørgen Riseth</h4>
+
+</div>
+
+
+<div id="task-1---model-selection-and-cross-validation" class="section level1">
+<h1>Task 1 - Model selection and cross-validation</h1>
+<div id="a-theoy" class="section level2">
+<h2>a) Theoy</h2>
+<div id="q1" class="section level4">
+<h4>Q1</h4>
+<p>For a linear model with <span class="math inline">\(d\)</span> possible predictors we have to consider all possible subsets of these predictors. Let <span class="math inline">\(k \in \{0, 1, 2, ..., d\}\)</span> be the number of predictors we want to include in a linear model for our data. For a given <span class="math inline">\(k\)</span> we have to try out all possible ways to combine <span class="math inline">\(k\)</span> predictors among a total of <span class="math inline">\(d\)</span>, i.e. we may fit <span class="math inline">\(d \choose k\)</span> linear models. Summing over all <span class="math inline">\(k\)</span> we get <span class="math display">\[
+\sum_{k = 0}^d {d \choose k} = 2^d
+\]</span> different linear models.</p>
+</div>
+<div id="q2" class="section level4">
+<h4>Q2</h4>
+<p><strong>Algorithm: Best Subset</strong></p>
+<ol style="list-style-type: decimal">
+<li>Set <span class="math inline">\(\mathcal{M}_0\)</span> equal to the sample mean of the data set.</li>
+<li>For <span class="math inline">\(k = 1, 2, ..., p\)</span>:
+<ol style="list-style-type: lower-alpha">
+<li>Fit all <span class="math inline">\(p \choose k\)</span> models that contain <span class="math inline">\(k\)</span> predictors, and pick the one among these models which has the smallest RSS. Call it <span class="math inline">\(\mathcal{M}_k\)</span>.</li>
+</ol></li>
+<li>Select the best model from among <span class="math inline">\(\mathcal{M}_0, \mathcal{M}_1, ..., \mathcal{M}_d\)</span> using BIC.</li>
+</ol>
+<p>Perforimng this algorithm in R:</p>
+<pre class="r"><code>n = nrows(dataset)
+M0 = mean(dataset) # Set M0 to sample mean
+reg.fit = regsubsets(Salary ~., data = dataset) # Fit and choose best model for each k = 1, .., d
+reg.summary = summary(reg.fit) 
+k.best = which.min(c(reg.summary$bic, ) # Choose best fit using BIC criterion
+best.coef = coef(reg.fit, k.best) # Retrieve coefficients for best model (excluding null model)</code></pre>
+<p>If we instead were using <span class="math inline">\(\text{R}^2\)</span> to choose the best model, we would always get a model using <span class="math inline">\(d\)</span> predictors, as RSS increases monotonically.</p>
+<p>The models including at least one coefficient are assumed to be better than the null model, so the null model won’t be considered in the following tasks. Generally this should be compared with the best model fit.</p>
+</div>
+</div>
+<div id="b-interpreting-output" class="section level2">
+<h2>b) Interpreting output</h2>
+<pre class="r"><code>library(ISLR)
+library(leaps) 
+library(ggplot2)
+set.seed(48)
+
+# Load dataset
+ourAuto=data.frame(&quot;mpg&quot;=Auto$mpg,&quot;cylinders&quot;=factor(cut(Auto$cylinders,2)),
+                   &quot;displace&quot;=Auto$displacement,&quot;horsepower&quot;=Auto$horsepower,
+                   &quot;weight&quot;=Auto$weight,&quot;acceleration&quot;=Auto$acceleration, 
+                   &quot;year&quot;=Auto$year,&quot;origin&quot;=as.factor(Auto$origin))
+
+# Split in test and training data
+ntot = dim(ourAuto)[1]
+set.seed(48)
+
+testids = sort(sample(1:ntot, ceiling(0.2*ntot), replace = FALSE))
+ourAutoTrain = ourAuto[-testids,]
+ourAutoTest= ourAuto[testids,]
+
+# Perform best subset on training data
+res = regsubsets(mpg~., nbest=1, data=ourAutoTrain)
+sumres = summary(res)
+sumres</code></pre>
+<pre><code>## Subset selection object
+## Call: regsubsets.formula(mpg ~ ., nbest = 1, data = ourAutoTrain)
+## 8 Variables  (and intercept)
+##                     Forced in Forced out
+## cylinders(5.5,8.01]     FALSE      FALSE
+## displace                FALSE      FALSE
+## horsepower              FALSE      FALSE
+## weight                  FALSE      FALSE
+## acceleration            FALSE      FALSE
+## year                    FALSE      FALSE
+## origin2                 FALSE      FALSE
+## origin3                 FALSE      FALSE
+## 1 subsets of each size up to 8
+## Selection Algorithm: exhaustive
+##          cylinders(5.5,8.01] displace horsepower weight acceleration year
+## 1  ( 1 ) &quot; &quot;                 &quot; &quot;      &quot; &quot;        &quot;*&quot;    &quot; &quot;          &quot; &quot; 
+## 2  ( 1 ) &quot; &quot;                 &quot; &quot;      &quot; &quot;        &quot;*&quot;    &quot; &quot;          &quot;*&quot; 
+## 3  ( 1 ) &quot;*&quot;                 &quot; &quot;      &quot; &quot;        &quot;*&quot;    &quot; &quot;          &quot;*&quot; 
+## 4  ( 1 ) &quot;*&quot;                 &quot; &quot;      &quot; &quot;        &quot;*&quot;    &quot; &quot;          &quot;*&quot; 
+## 5  ( 1 ) &quot;*&quot;                 &quot;*&quot;      &quot; &quot;        &quot;*&quot;    &quot; &quot;          &quot;*&quot; 
+## 6  ( 1 ) &quot;*&quot;                 &quot;*&quot;      &quot;*&quot;        &quot;*&quot;    &quot; &quot;          &quot;*&quot; 
+## 7  ( 1 ) &quot;*&quot;                 &quot;*&quot;      &quot;*&quot;        &quot;*&quot;    &quot; &quot;          &quot;*&quot; 
+## 8  ( 1 ) &quot;*&quot;                 &quot;*&quot;      &quot;*&quot;        &quot;*&quot;    &quot;*&quot;          &quot;*&quot; 
+##          origin2 origin3
+## 1  ( 1 ) &quot; &quot;     &quot; &quot;    
+## 2  ( 1 ) &quot; &quot;     &quot; &quot;    
+## 3  ( 1 ) &quot; &quot;     &quot; &quot;    
+## 4  ( 1 ) &quot; &quot;     &quot;*&quot;    
+## 5  ( 1 ) &quot; &quot;     &quot;*&quot;    
+## 6  ( 1 ) &quot; &quot;     &quot;*&quot;    
+## 7  ( 1 ) &quot;*&quot;     &quot;*&quot;    
+## 8  ( 1 ) &quot;*&quot;     &quot;*&quot;</code></pre>
+<div id="q3" class="section level4">
+<h4>Q3</h4>
+<p>For each level of model complexity <span class="math inline">\(k\)</span>, a linear model is fitted for all <span class="math inline">\(d \choose k\)</span> different subsets containing <span class="math inline">\(k\)</span> predictors. The best amongst these are chosen using RSS or equivalently <span class="math inline">\(\text{R}^2\)</span>.</p>
+<p>The best model using 2 covariates:</p>
+<pre class="r"><code>coef(res, id = 2)</code></pre>
+<pre><code>##   (Intercept)        weight          year 
+## -13.646715908  -0.006755205   0.753402759</code></pre>
+<p>ie. <code>mpg = (-0.0065)weight + (0.7699)year</code>.</p>
+</div>
+<div id="q4" class="section level4">
+<h4>Q4</h4>
+<p>Using RSS to choose between models of the same complexity works fine, but since RSS decreases monotonically with increasing number of predictors we need to use some other criterion to choose between models of different complexity.</p>
+<p>Four techniques that are used to adjust the training error such that it penalizes increased model complexity are used to compare different models: Mallow’s <span class="math inline">\(C_p\)</span>, Akaike Information Criterino (AIC), Bayesion Information Criterion (BIC) and adjusted <span class="math inline">\(R^2\)</span>. These are defined in the course textbook as:</p>
+<p><span class="math display">\[
+C_p = \frac{1}{n}(\text{RSS} + 2d\hat \sigma^2)
+\]</span> <span class="math display">\[
+\text{AIC} = \frac{1}{n\hat\sigma^2}(\text{RSS} + 2d\hat\sigma^2)
+\]</span> <span class="math display">\[
+\text{BIC} = \frac{1}{n\hat\sigma^2}(\text{RSS} + \text{log}(n)d\hat \sigma^2)
+\]</span> <span class="math display">\[
+\text{Adjusted } R^2 = 1-\frac{\text{RSS}/(n-d-1)}{\text{TSS}/(n-1)}
+\]</span> AIC and <span class="math inline">\(C_p\)</span> are proportional to each other, and therefore gives the same results for the best model. For <span class="math inline">\(C_p\)</span>, AIC and BIC we choose the model with the lowest value, and for adjusted <span class="math inline">\(R^2\)</span> we choose the model with highest value.</p>
+<p>An alternative approach is to estimate the test error for each model using cross-validation methods, and then choose the one with the lowest estimated test error. This is further explained in 1c).</p>
+<p>According to the BIC criterion the best model in our Auto data set uses 7 predictors: All except acceleration.</p>
+<pre class="r"><code>#BIC plot for subsets
+plot(res,scale=&quot;bic&quot;)</code></pre>
+<p><img src="project2_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code># Find best subset model using BIC
+sumres$bic
+which.min(sumres$bic)
+coef(res,id=which.min(sumres$bic))</code></pre>
+<pre><code>## [1] -345.9393 -482.2991 -499.7315 -502.4492 -501.9509 -506.5900 -512.9862
+## [8] -509.1720
+## [1] 7
+##         (Intercept) cylinders(5.5,8.01]            displace 
+##       -16.073332968        -4.123540911         0.031204109 
+##          horsepower              weight                year 
+##        -0.043200056        -0.005739187         0.738391906 
+##             origin2             origin3 
+##         2.172886347         2.950092641</code></pre>
+<p>The most significant variable is the number of cylinders, where an increase of 1 sylinder results in a decrease of almost 4 mpg. Furthermore american cars seems to be less fuel efficients than european and japanese cars(since the <code>origin2</code> and <code>origin3</code> are positive). Not surprisingly, there is also a positive relation between mpg and model year, such that the newer cars are more fuel efficient.</p>
+<p>Since R does not already contain a predict function for <code>regsubsets</code>-object, the following function is defined to perform predictions:</p>
+<pre class="r"><code>predict.regsubsets=function(object,newdata,id,...){
+  form = as.formula(object$call[[2]])
+  mat = model.matrix(form,newdata)
+  coefi = coef(object,id=id)
+  xvars = names(coefi)
+  mat[,xvars] %*% coefi
+}</code></pre>
+<p>and the mean square error of the training data using this prediction is given by:</p>
+<pre class="r"><code># Mean Squared Error for train data
+train.pred = predict.regsubsets(res, ourAutoTrain, 7)
+mean((train.pred-ourAutoTrain[&quot;mpg&quot;])$mpg^2)</code></pre>
+<pre><code>## [1] 10.33417</code></pre>
+</div>
+<div id="q5" class="section level4">
+<h4>Q5</h4>
+<p>The mean square error for the test data:</p>
+<pre class="r"><code># Mean Squared Error for test data
+test.pred = predict.regsubsets(res, ourAutoTest, 7)
+mean((train.pred-ourAutoTrain[&quot;mpg&quot;])$mpg^2)</code></pre>
+<pre><code>## [1] 10.33417</code></pre>
+<p>which is close to (actually lower in this case) than the training error, and indicates a good model fit.</p>
+</div>
+</div>
+<div id="c-cross-validation" class="section level2">
+<h2>c) Cross-Validation</h2>
+<div id="q6" class="section level4">
+<h4>Q6</h4>
+<p><span class="math inline">\(k\)</span>-fold cross-validation involves randomly dividing our set into <span class="math inline">\(k\)</span> folds, of approximatly same size. The first group is used as a validation set, and the other <span class="math inline">\(k\)</span>-1 folds is used as a training set to fit the model. The model is then tested on the fold that was left out and we compute the mean square error and denote it <span class="math inline">\(MSE_1\)</span>. This prosedure is then repeated <span class="math inline">\(k\)</span> times, where a new fold is used as validation set for every iteration. The <span class="math inline">\(k\)</span>-fold CV estimate is computed by taking the average of each MSE.</p>
+<p><span class="math display">\[
+ CV_k = \frac{1}{k}\sum_{i=1}^{k} \text{MSE}_i
+\]</span></p>
+<p>An advantage of <span class="math inline">\(k\)</span>-fold cross-validation is that it is very general, and can be used on most statistical learning problems. It’s also not as computationally heavy as leave one out cross-validation (LOOCV), but It also adresses the problem of leave on out cross-validation (LOOCV), as opposed to leave one out cross-validation which can be very computationally heavy if the size of the set, <span class="math inline">\(n\)</span>, is very large.</p>
+</div>
+<div id="q7" class="section level4">
+<h4>Q7</h4>
+<p>LOOCV gives approximately unbiased estimates of the test error rate, since the training set contains <span class="math inline">\(n-1\)</span> observations, which is almost as many as in the full data set. <span class="math inline">\(k\)</span>-fold CV will have some bias since each training set has fewer elements than when we perform LOOCV, <span class="math inline">\((k-1)n/k\)</span> elements. From the perspective of bias reduction we would prefer LOOCV over <span class="math inline">\(k\)</span>-fold CV. When performing LOOCV, we are averaging over the output of highly correlated models, only differing in one data point. Using <span class="math inline">\(k\)</span>-fold CV, we are averaging over fewer models whith lower correlation, which gives a lower variance than LOOCV.</p>
+<p>It is therefore a bias-variance trade-off asscosiated with the choice of <span class="math inline">\(k\)</span> in the <span class="math inline">\(k\)</span>-fold CV.</p>
+</div>
+</div>
+<div id="d-programming-10-fold-cross-validation-in-r" class="section level2">
+<h2>d) Programming 10-fold cross-validation in R</h2>
+<div id="q8" class="section level4">
+<h4>Q8</h4>
+<pre class="r"><code>p = ncol(ourAuto) # Numbers of predictors in our data set
+k = 10 # Number of folds
+folds = sample(1:k, nrow(ourAutoTrain), replace = T)
+cv.errors = matrix(NA, k, p, dimnames = list(NULL, paste(1:p)))
+
+for(j in 1:k){
+  best.fit = regsubsets(mpg ~., data = ourAutoTrain[folds != j, ], nvmax = p)
+  for (i in 1:p){ # 
+    pred = predict(best.fit, ourAutoTrain[folds==j, ], id = i)
+    cv.errors[j, i] = mean((ourAutoTrain$mpg[folds==j]-pred)^2)
+  }
+}
+
+mean.cv.errors = apply(cv.errors, 2, mean)
+plot(mean.cv.errors, type = &quot;b&quot;)</code></pre>
+<p><img src="project2_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<pre class="r"><code>mean.cv.errors</code></pre>
+<pre><code>##        1        2        3        4        5        6        7        8 
+## 20.25406 13.00589 12.18048 12.11179 12.77152 11.97285 11.47020 11.27656</code></pre>
+</div>
+<div id="q9" class="section level4">
+<h4>Q9</h4>
+<pre class="r"><code># Optimal Model Complexity in regression model
+num = which.min(mean.cv.errors)
+num</code></pre>
+<pre><code>## 8 
+## 8</code></pre>
+</div>
+<div id="q10" class="section level4">
+<h4>Q10</h4>
+<p>Using 10-fold cross validation reported the same best model as using BIC, and thus there interesting features are the same as reported in Q4</p>
+<pre class="r"><code>coef(res, id = num)
+test.pred = predict.regsubsets(res, ourAutoTest, 7)
+mean((test.pred-ourAutoTest[&quot;mpg&quot;])$mpg^2)</code></pre>
+<pre><code>##         (Intercept) cylinders(5.5,8.01]            displace 
+##        -19.00049646         -4.09873067          0.03317899 
+##          horsepower              weight        acceleration 
+##         -0.02967171         -0.00629933          0.15055455 
+##                year             origin2             origin3 
+##          0.74436317          2.15113532          2.93602992 
+## [1] 7.914423</code></pre>
+<p>##2a) Explain figures</p>
+</div>
+<div id="q11" class="section level4">
+<h4>Q11</h4>
+<p>Figure 1 has to be the lasso regression, since the coefficients are shrinked to zero, while in figure 2 they aren’t zero, only close to, which corresponds to ridge regression.</p>
+</div>
+<div id="q12" class="section level4">
+<h4>Q12</h4>
+<p>Lasso is an acronym for least absolute shrinkage and selector operator, and why high tuning parameters may shrink all coefficients to zero becomes more obvious in 2D. Both equations are being minimized, but for lasso, our <span class="math inline">\(\hat{\beta}\)</span> might intersect with either axis, since the second term, <span class="math inline">\(\lambda \sum_j |\beta_j |\)</span> forms some not-smooth diamond shape, while in the <span class="math inline">\(l^2\)</span>-space in ridge regression forms a circle. Intersection between RSS (first term) and the penalty (second term) is then never on either axis, for ridge regression, i.e. no <span class="math inline">\(\beta\)</span> can be zero.</p>
+<p>It is clear that the <span class="math inline">\(\lambda\)</span> affects the shrinkage of every <span class="math inline">\(\beta_j\)</span> more in lasso than in ridge regression, and they seem to minimize differently. From lasso we would have claimed <code>cylinders</code> and <code>year</code> to be the most significant ones, but in ridge <code>origin3</code> and <code>cylinders</code> have greater coefficients.</p>
+<p>We get a flexible model when we have low <span class="math inline">\(\lambda\)</span>. This means we have many covariates, and we eliminate more variance while introducing more bias. In the same way, a less flexible model with higher <span class="math inline">\(\lambda\)</span> will have less bias, since it has fewer covariates, and act more stable on a test set.</p>
+<p>When <span class="math inline">\(\lambda = 0\)</span>, we simply find the coefficients by minimizing the normal sum of squared errors, and all <span class="math inline">\(\beta_j\)</span> stay the same as in the regular linear regression. When <span class="math inline">\(\lambda \rightarrow \infty\)</span> we minimize a sum of positive terms and the other sum becomes negligible small. Minimizing the sum will have to set all terms to zero, which is what we see in the figures.</p>
+</div>
+<div id="q13" class="section level4">
+<h4>Q13</h4>
+<p>We can use lasso to select which covariates to include, and which to exclude, as we did in 1b), since it actually sets certain coefficients to zero, and we can exclude these. Ridge never shrinks to zero, so it is not straight forward to pick the highest <span class="math inline">\(\beta\)</span>s. After using lasso we could select a linear model with as many non-zero covariates as we like. The result is however different, for instance picking two covariates using BIC give a model with <code>weight</code> and <code>year</code>, while lasso would give <code>year</code> and <code>cylinders</code>. All three models agree on that <code>acceleration</code> har low effect.</p>
+</div>
+</div>
+<div id="b-finding-the-optimal-lambda" class="section level2">
+<h2>2b) Finding the optimal <span class="math inline">\(\lambda\)</span></h2>
+<div id="q14" class="section level4">
+<h4>Q14</h4>
+<p><code>cv.glmnet</code> is a function performing a k-fold cross-validation on our model for <span class="math inline">\(mpg\)</span> in the data set <code>ourAutoTrain</code>, with the list of tuning parameters <code>lambda</code> for different <span class="math inline">\(\lambda\)</span>. In the argument we select <code>alpha</code> to be 0 or 1 to get the type of regression we want - ridge or lasso. We want lasso, and choose <code>alpha</code> = 1. Some of the functions features are used in this task, for instance it tells us how many nonzero coefficients there are at different <span class="math inline">\(\lambda_i\)</span>.</p>
+</div>
+<div id="q15" class="section level4">
+<h4>Q15</h4>
+<p>In the plot from the exercise (<code>cv.out</code>) we see how the MSE is increasing as the penalty is being increased. The plot shows the natural logarithm of all the <span class="math inline">\(\lambda\)</span>s, and the mean squared error is the first term in the equation for lasso in 2a). Just by inspection we see that the MSE increases drastically for <span class="math inline">\(\lambda &gt; 1\)</span>. Intuitively we see that we sould perform the regression for <span class="math inline">\(\lambda\)</span> lower than 1, giving 5 <span class="math inline">\(\beta\)</span>s non-zero (can be found in <code>cv.out$nzero</code>). We prefer a simple model, and wish to increase the <span class="math inline">\(\lambda\)</span> a bit more to set another coefficient to zero. To have 6 non-zero betas we have to set <span class="math inline">\(\lambda = 0.1\)</span>, for 5 nonzero betas <span class="math inline">\(\lambda \approx 0.4\)</span>. Any <span class="math inline">\(\lambda\)</span> lower than 0.1 wouldn’t set any coefficients to zero.</p>
+<p>Using the 1se-rule in glmnet, R returns the largest <span class="math inline">\(\lambda\)</span> such that the error is within 1 standard error of the minimum <span class="math inline">\(\lambda\)</span>, here <code>cv.out$lambda.1se</code> gives <span class="math inline">\(\lambda = 0.593\)</span> as the optimal <span class="math inline">\(\lambda\)</span>.</p>
+</div>
+<div id="q16" class="section level4">
+<h4>Q16</h4>
+<pre class="r"><code>library(glmnet)
+
+x=model.matrix(mpg~.,ourAutoTrain)[,-1] #-1 to remove the intercept.
+head(x)
+y=ourAutoTrain$mpg
+
+lambda=c(seq(from=5,to=0.1,length.out=150),0.01,0.0001) #Create a set of tuning parameters, adding low value to also see least squares fit
+cv.out=cv.glmnet(x,y,alpha=1,nfolds=10,lambda=lambda, standardize=TRUE) 
+
+cv.out$lambda.1se</code></pre>
+<pre><code>##    cylinders(5.5,8.01] displace horsepower weight acceleration year
+## 1                    1      307        130   3504         12.0   70
+## 3                    1      318        150   3436         11.0   70
+## 5                    1      302        140   3449         10.5   70
+## 7                    1      454        220   4354          9.0   70
+## 10                   1      390        190   3850          8.5   70
+## 12                   1      340        160   3609          8.0   70
+##    origin2 origin3
+## 1        0       0
+## 3        0       0
+## 5        0       0
+## 7        0       0
+## 10       0       0
+## 12       0       0
+## [1] 0.461745</code></pre>
+<p>As stated, we don’t want <span class="math inline">\(\lambda\)</span> to exceed 1, but in order to do proper shrinkage it has to be higher than 0.1. In this interval the MSE doesn’t change much, but further increase of <span class="math inline">\(\lambda\)</span> will increase the MSE a lot. Hence, using the <code>1se</code>-rule satifies all our criteria, so this is the one we choose for “optimal” <span class="math inline">\(\lambda = 0.462\)</span>.</p>
+<p>##c) Prediction #### Q17 In the code block below we use the <span class="math inline">\(\lambda\)</span> from the previous question to fit a linear model, minimizing using lasso regression. The coefficient estimates are listed below, those without any value are shrinked to zero.</p>
+<pre class="r"><code>optimallambda = cv.out$lambda.1se
+optimalModel = glmnet(x,y, alpha = 1, lambda = optimallambda, standardize = TRUE)
+optimalModel$beta </code></pre>
+<pre><code>## 8 x 1 sparse Matrix of class &quot;dgCMatrix&quot;
+##                               s0
+## cylinders(5.5,8.01] -2.825764832
+## displace             .          
+## horsepower          -0.016050954
+## weight              -0.004171936
+## acceleration         .          
+## year                 0.609704699
+## origin2              .          
+## origin3              1.029729744</code></pre>
+<p>The model fit is therefore <code>mpg = (-2.39)cylinders + (-0.0080)horsepower + (-0.0046)weight + (0.64)year + (0.443)origin3</code>.</p>
+</div>
+<div id="q18" class="section level4">
+<h4>Q18</h4>
+<p>We use the model from the “optimal” <span class="math inline">\(\lambda\)</span> to predict the value of an unknown cars gas consumption in miles per gallon. When creating the vector for the new observation (car), we need to classify the same way we did when making factor variables. A car with 4 cylinders is in category 0, and European cars belong to origin1, i.e. <code>origin2</code> and <code>origin3</code> are 0. Below we perform the prediction.</p>
+<pre class="r"><code># 0 for cylinder, displace, horsepower, weight, acceleration, year, 0 for origin2 and 0 for origin3
+newx = matrix(c(0,150,100,3000,10,82,0,0),nrow=1)
+mpgPred = predict.glmnet(optimalModel, newx = newx)
+mpgPred</code></pre>
+<pre><code>##           s0
+## [1,] 28.3004</code></pre>
+<p>The predicted value for this car is a consumption of 28.21 miles per gallon.</p>
+<p>#Additive non-liner regression ##3a) #### Q19 Fitting the specified <code>gamobject</code> is done in the code block below. The implementation is pretty straightforward, origin is already defined as a factor variable in the data frame, so no specification is neccessary in the model for it to be a step function. Further, the default for <code>bs</code> is a cubic spline, and the cylinders are not in the model. The plot is displayed below.</p>
+<pre class="r"><code>library(gam)
+library(splines)
+library(lattice)
+library(ggplot2)
+par(mfrow=c(2,3))  
+
+gamobject = gam(mpg ~ bs(displace, df = 2, knots = 290) + poly(horsepower, degree = 2) 
+                + weight + s(acceleration, df = 3) + origin, data = ourAutoTrain)
+
+plot(gamobject,se=TRUE,col=&quot;blue&quot;)</code></pre>
+<p><img src="project2_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>In the all the plots we see how each covariate contribute to the response (every y-axis). In each case we also see the confidence interval of each estimation (dotted line). A common trend is that the confidence interval is rather large towards the edges in all of the plots, i.e. we aren’t very certain of the behaviour of the model in these regions. This will cause great variance when predicting cars with rare features.</p>
+</div>
+<div id="q20" class="section level4">
+<h4>Q20</h4>
+<p>The cubic spline basis for the covariate <code>displace</code> is consisting of only one nontrivial polynomial of degree 3, since there is only one knot, at 290. The basis is therefore <span class="math inline">\(X, X^2, X^3\)</span> and <span class="math inline">\((X - 290)^3\)</span>. The <code>gamobject$coefficients</code> will display the coefficients of each term in the additive model, and we find the four coefficients for the four basis polynomials here. In this model, the coefficients are</p>
+<pre class="r"><code>gamobject$coefficients[2:5]</code></pre>
+<pre><code>## bs(displace, df = 2, knots = 290)1 bs(displace, df = 2, knots = 290)2 
+##                           2.025261                          -9.485022 
+## bs(displace, df = 2, knots = 290)3 bs(displace, df = 2, knots = 290)4 
+##                           1.738894                          -5.947572</code></pre>
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
