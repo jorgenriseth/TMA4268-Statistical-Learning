@@ -1,12 +1,17 @@
-name: "cars"
+name: "statistical-learning"
 output_dir: "docs"
 navbar:
-  title: "TMA4268"
-  left:
-    - text: "Home"
-      href: index.html
-    - text: "Untitled"
-      href: Untitled.html
+    title: "TMA4268 - Statistical Learning"
+    left:
+        - text: "Home"
+          href: index.html
+        - text: "Exercise 1"
+          href: project1.html
+        - text: "Exercise 2"
+          href: project2.html
+        - text: "Exercise 3"
+          href: project3.html
 output:
     html_document:
-theme: cosmo
+        theme: cosmo
+        highlight: textmate

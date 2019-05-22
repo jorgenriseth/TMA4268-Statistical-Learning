@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Jørgen Riseth, Oliver Byhring and Håvard Bjørkøy" />
+
+
+<title>Compulsory Exercise 1</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">TMA4268 - Statistical Learning</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="project1.html">Exercise 1</a>
+</li>
+<li>
+  <a href="project2.html">Exercise 2</a>
+</li>
+<li>
+  <a href="project3.html">Exercise 3</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Compulsory Exercise 1</h1>
+<h3 class="subtitle">TMA4268 Statistical Learning V2018</h3>
+<h4 class="author">Jørgen Riseth, Oliver Byhring and Håvard Bjørkøy</h4>
+
+</div>
+
+
+<div id="problem-1---core-concepts-in-statistical-learning" class="section level1">
+<h1>Problem 1 - Core concepts in statistical learning</h1>
+<div id="a-training-and-test-mse" class="section level2">
+<h2>a) Training and test MSE</h2>
+<p>###Figure 2 * The flexibility of the regression is high for K = 1, and gets smaller as K increases. For <span class="math inline">\(K = 1\)</span> and <span class="math inline">\(K = 2\)</span> the average of the different regressions at each point seems to fit the true curve well, but there is a lot of variance in the separate regression. For <span class="math inline">\(k = 10\)</span> the amount of noise, the regressions have a tighter fit along the interval <span class="math inline">\([-2.2, 2.2]\)</span> but the regression becomes flat at the endpoints. This is because the last 5 datapoint will share the same 10 closest points. This gets even more clear for <span class="math inline">\(K = 25\)</span>. This makes the regressions for high <span class="math inline">\(K\)</span>-values biased at the end of our interval. There is also a biased trend farther from the endpoints. For negative curvature the KNN-regression predicts too low values, and for positive curvature the predictions become too high.</p>
+<p>##Figure 3 * For all our training data sets, the MSE is zero for <span class="math inline">\(K = 1\)</span>, and increases as <span class="math inline">\(K\)</span> increases. From the training data a regression model is created. When this model is used on our test sets, the MSE decreases for <span class="math inline">\(K\)</span> from 1 till ~5, and then start to increase as it did with the training data.</p>
+<ul>
+<li>This shows the bias-variance tradeoff. For small <span class="math inline">\(K\)</span> the regression model is overfitted to our training data, which gives increased variance for our test data. For large <span class="math inline">\(K\)</span> the MSE increases as it becomes more biased. From these plots, the optimal value for <span class="math inline">\(K\)</span> seems to be 4.</li>
+</ul>
+</div>
+<div id="b-bias-variance-trade-off" class="section level2">
+<h2>b) Bias-variance trade-off</h2>
+<ul>
+<li><p>First <span class="math inline">\(n=61\)</span> error terms <span class="math inline">\(\epsilon_i\)</span> for <span class="math inline">\(i = 0, 1,...,60\)</span> are drawn from a normal distribution with mean 0 and variance 4. Then 61 equidistant <span class="math inline">\(x\)</span>-values are chosen on the interval <span class="math inline">\([-3, 3]\)</span>. The true underlying curve is defined by <span class="math inline">\(f(x) = -1 + x^2 + x^3\)</span>, and we define the set of observations as <span class="math inline">\((x_i, y_i) = (x_i, f(x_i) + \epsilon_i)\)</span>. KNN-regression is used on these datapoints, to get a fitted curve <span class="math inline">\(\hat{f}_K\)</span> for different values of <span class="math inline">\(K\)</span>. Performing this process <span class="math inline">\(M\)</span> times, we canverage over the responses at every value <span class="math inline">\(x_i\)</span>, and can</p></li>
+<li><p>Since we’re not in the real world and we know the underlying curve, we can now calculate the expected MSE: <span class="math inline">\(E[(Y-\hat{f}_k(x_i)^2]\)</span> at all <span class="math inline">\(x_i\)</span> values. This may be decomposed into three terms: The irreducible error, the variance of the prediction, and squared bias: <span class="math display">\[
+E[(Y-\hat{f}_k(x_i)^2] = \text{Var}(\epsilon) + \text{Var}[\hat{f}(x_i)] + [\text{Bias}(\hat{f}(x_i))]^2
+\]</span> The irreducible error is given by the variance of the error terms, i.e. <span class="math inline">\(\text{Var}(\epsilon) = 4\)</span>, The prediction variance is given by the MSE of the different observations relative to our estimated regression <span class="math inline">\(\hat{f}\)</span>, and the Bias is defined by <span class="math inline">\(f(x_i) - \hat{f}(x_i)\)</span>. Calculating and averaging these terms for all observations <span class="math inline">\(x_i\)</span> for every <span class="math inline">\(K-value\)</span>, and plotting these as a function of <span class="math inline">\(K\)</span>, we get the plots in figure 4.</p></li>
+<li>For increasing model flexibility:
+<ul>
+<li>The irreducible remains constant equal to 4.</li>
+<li>The variance decreases towards zero</li>
+<li>The bias increases</li>
+</ul></li>
+<li>The largest proportion of the total error is given by:
+<ul>
+<li>The irreducible error for <span class="math inline">\(K = 1,..., 8\)</span>.</li>
+<li>The variance term for <span class="math inline">\(K&gt;8\)</span>.</li>
+</ul></li>
+<li><p>The lowest total error, and thus the optimal <span class="math inline">\(K\)</span>-value, is given for <span class="math inline">\(K=3\)</span>. The error value is about the same value for <span class="math inline">\(K=4\)</span> and <span class="math inline">\(5\)</span>, which matches our guess from a).</p></li>
+</ul>
+</div>
+</div>
+<div id="problem-2---linear-regression" class="section level1">
+<h1>Problem 2 - Linear regression</h1>
+<pre class="r"><code>library(ggplot2)
+data = read.table(&quot;https://www.math.ntnu.no/emner/TMA4268/2018v/data/SYSBPreg3uid.txt&quot;)
+dim(data)
+colnames(data)
+modelA=lm(-1/sqrt(SYSBP) ~ .,data = data)
+summary(modelA)</code></pre>
+<div id="a-understanding-model-output" class="section level2">
+<h2>a) Understanding model output</h2>
+<p>The equation for the fitted model A is <span class="math inline">\(\frac{-1}{\sqrt{SYSBP}} = \beta_0 + \beta_1 SEX + \beta_2 AGE + \beta_3 CURSMOKE + \beta_4 BMI + \beta_5 TOTCHOL + \beta_6 BPMEDS + \epsilon\)</span>, so our model fits this linear relation best. When measuring, we will have errors, <span class="math inline">\(\epsilon\)</span> which our parameters will try to minimize.</p>
+<p>The estimates are the estimates for each coefficient <span class="math inline">\(\beta_i\)</span> that best fits our model. The intercept is our <span class="math inline">\(\beta_0\)</span>, i.e. our model prediction if all covariates were zero, our line intercept of systolic blood pressure in the seven dimensional relation. The Std. Error is the standard error of the parameter estimated on our data set, i.e. a measurement of variability in the relation between <span class="math inline">\(\frac{-1}{\sqrt{SYSBP}}\)</span> and the covariate we’re evaluating. A better measurement of the slope in each covariates direction if the t-value, which reveals how many standard errors our estimate is from zero, i.e. esimate divided by standard error. A large t-value indicates that the nullhypothesis seems to be false, and this is also shown in the value of each Pr(&gt;|t|), which explains the probability that the true coefficient differ from our estimator more than the (absolute) t-value, by equation <span class="math inline">\(t = \frac{\hat{\beta_i} - \beta}{\hat{\sigma}}\)</span>, where <span class="math inline">\(\hat{\sigma}\)</span> is the standard error as described. Then we see that the t-value is the quantile for which we reach <span class="math inline">\(\beta = 0\)</span> in the t-distribution. The p-value is our confidence in the nullhypothesis.</p>
+<p>The residual standard error is sort of an unbiased quality control of our error terms in the model. The RSE is the RSS divided by the degrees of freedom. The F-statistic is a tool for deciding wether to reject the nullhypothesis, and will tell us if the regression is significant. The upper tail of the F-distribution gives the p-value, and we can reject the nullhypothesis if this p-value is greater than some critical value ( i.e. 0.01).</p>
+</div>
+<div id="b-model-fit" class="section level2">
+<h2>b) Model fit</h2>
+<p>The entire code for our solution of b) of given below, where we perform the same type of analysis on model A as on model B.</p>
+<pre class="r"><code>library(ggplot2)</code></pre>
+<pre><code>## Registered S3 methods overwritten by &#39;ggplot2&#39;:
+##   method         from 
+##   [.quosures     rlang
+##   c.quosures     rlang
+##   print.quosures rlang</code></pre>
+<pre class="r"><code>data = read.table(&quot;https://www.math.ntnu.no/emner/TMA4268/2018v/data/SYSBPreg3uid.txt&quot;)
+dim(data)</code></pre>
+<pre><code>## [1] 2600    7</code></pre>
+<pre class="r"><code>colnames(data)</code></pre>
+<pre><code>## [1] &quot;SYSBP&quot;    &quot;SEX&quot;      &quot;AGE&quot;      &quot;CURSMOKE&quot; &quot;BMI&quot;      &quot;TOTCHOL&quot; 
+## [7] &quot;BPMEDS&quot;</code></pre>
+<pre class="r"><code>modelA=lm(-1/sqrt(SYSBP) ~ .,data = data)
+summary(modelA)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = -1/sqrt(SYSBP) ~ ., data = data)
+## 
+## Residuals:
+##        Min         1Q     Median         3Q        Max 
+## -0.0207366 -0.0039157 -0.0000304  0.0038293  0.0189747 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -1.103e-01  1.383e-03 -79.745  &lt; 2e-16 ***
+## SEX         -2.989e-04  2.390e-04  -1.251 0.211176    
+## AGE          2.378e-04  1.434e-05  16.586  &lt; 2e-16 ***
+## CURSMOKE    -2.504e-04  2.527e-04  -0.991 0.321723    
+## BMI          3.087e-04  2.955e-05  10.447  &lt; 2e-16 ***
+## TOTCHOL      9.288e-06  2.602e-06   3.569 0.000365 ***
+## BPMEDS       5.469e-03  3.265e-04  16.748  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.005819 on 2593 degrees of freedom
+## Multiple R-squared:  0.2494, Adjusted R-squared:  0.2476 
+## F-statistic: 143.6 on 6 and 2593 DF,  p-value: &lt; 2.2e-16</code></pre>
+<pre class="r"><code>ggplot(modelA, aes(.fitted, .resid)) + geom_point(pch = 21) + 
+  geom_hline(yintercept = 0, linetype = &quot;dashed&quot;) + 
+  geom_smooth(se = FALSE, col = &quot;red&quot;, size = 0.5, method = &quot;loess&quot;) + 
+  labs(x = &quot;Fitted values&quot;, y = &quot;Residuals&quot;, title = &quot;Fitted values vs. residuals&quot;, subtitle = deparse(modelA$call))</code></pre>
+<p><img src="project1_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<pre class="r"><code># qq-plot of residuals
+ggplot(modelA, aes(sample = .stdresid)) +
+  stat_qq(pch = 19) + 
+  geom_abline(intercept = 0, slope = 1, linetype = &quot;dotted&quot;) +
+  labs(x = &quot;Theoretical quantiles&quot;, y = &quot;Standardized residuals&quot;, title = &quot;Normal Q-Q&quot;, subtitle = deparse(modelA$call))</code></pre>
+<p><img src="project1_files/figure-html/unnamed-chunk-2-2.png" width="672" /></p>
+<pre class="r"><code># normality test
+library(nortest) 
+ad.test(rstudent(modelA))</code></pre>
+<pre><code>## 
+##  Anderson-Darling normality test
+## 
+## data:  rstudent(modelA)
+## A = 0.19209, p-value = 0.8959</code></pre>
+<pre class="r"><code>modelB=lm(SYSBP ~ .,data = data)
+summary(modelB)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = SYSBP ~ ., data = data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -59.800 -13.471  -1.982  11.063  88.959 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 56.505170   4.668798  12.103  &lt; 2e-16 ***
+## SEX         -0.429973   0.807048  -0.533  0.59424    
+## AGE          0.795810   0.048413  16.438  &lt; 2e-16 ***
+## CURSMOKE    -0.518742   0.853190  -0.608  0.54324    
+## BMI          1.010550   0.099770  10.129  &lt; 2e-16 ***
+## TOTCHOL      0.028786   0.008787   3.276  0.00107 ** 
+## BPMEDS      19.203706   1.102547  17.418  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 19.65 on 2593 degrees of freedom
+## Multiple R-squared:  0.2508, Adjusted R-squared:  0.249 
+## F-statistic: 144.6 on 6 and 2593 DF,  p-value: &lt; 2.2e-16</code></pre>
+<pre class="r"><code>ggplot(modelB, aes(.fitted, .resid)) + geom_point(pch = 21) + 
+  geom_hline(yintercept = 0, linetype = &quot;dashed&quot;) + 
+  geom_smooth(se = FALSE, col = &quot;red&quot;, size = 0.5, method = &quot;loess&quot;) + 
+  labs(x = &quot;Fitted values&quot;, y = &quot;Residuals&quot;, title = &quot;Fitted values vs. residuals&quot;, subtitle = deparse(modelA$call))</code></pre>
+<p><img src="project1_files/figure-html/unnamed-chunk-2-3.png" width="672" /></p>
+<pre class="r"><code># qq-plot of residuals
+ggplot(modelB, aes(sample = .stdresid)) +
+  stat_qq(pch = 19) + 
+  geom_abline(intercept = 0, slope = 1, linetype = &quot;dotted&quot;) +
+  labs(x = &quot;Theoretical quantiles&quot;, y = &quot;Standardized residuals&quot;, title = &quot;Normal Q-Q&quot;, subtitle = deparse(modelA$call))</code></pre>
+<p><img src="project1_files/figure-html/unnamed-chunk-2-4.png" width="672" /></p>
+<pre class="r"><code>ad.test(rstudent(modelB))</code></pre>
+<pre><code>## 
+##  Anderson-Darling normality test
+## 
+## data:  rstudent(modelB)
+## A = 13.2, p-value &lt; 2.2e-16</code></pre>
+<p>The porportion of variability explained by the model is 24.9 %, which is the R-squared value. This implies that a lot of the variance is coming from elsewhere, but we might nontheless accept our model, since it gives a simple relationship. Unexplainable variance is to be expected.</p>
+<p>From the plots of model A we see that the residuals are very small, and the QQ-plot shows that the error terms are normally distributed. Both qualities are desirable, and indicates that the model is nice.</p>
+<p>Model B explains the variability of the data almost the exact same as model A, but the two plots reveals that model A is way better. The residuals of B are far greater than those of A, and they don’t seem to be normally distributed at all. Only A pass the Anderson-Darling normality test, and fail to reject that the data is sampled from a normal distribution.</p>
+</div>
+<div id="c-confidence-interval-and-hypothesis-test" class="section level2">
+<h2>c) Confidence interval and hypothesis test</h2>
+<p>The estimator of the relation between BMI and SYSBP in our model is <span class="math inline">\(\hat{\beta}_{BMI} = 3.087 \cdot 10^{-4}\)</span>. Here our response is shaped as <span class="math inline">\(\frac{-1}{\sqrt{SYSBP}}\)</span>, and therefore an increase in BMI wil actually lower the SYSBP generally in our model. Though this seems counterintuitive, it might be right for this model since we have several covariates.</p>
+<p>To construct a 99% confidence interval we need to use the t-distribution as explained, though the degrees of freedom is so large in this study (2593), so it will suffice to choose the right quantile from the normal distribution = upper and lower 0.5%. <span class="math inline">\(z_{0.005} = 2.576\)</span>, so our interval will be covered by <span class="math inline">\(\hat{\beta}_{BMI} \pm z_{0.005} \hat{\sigma}\)</span>, which gives <span class="math inline">\(\beta_{BMI} \in (2.33 \cdot 10^{-4}, 3.85 \cdot 10^{-4})\)</span>. The interval tells us that repeating the experiment with the same amount of observations will with 99% confidence reproduce an estimator within this interval.</p>
+<p>In R we can do it as follows</p>
+<pre class="r"><code>confint(modelA, &quot;BMI&quot;, level = 0.99)</code></pre>
+<pre><code>##            0.5 %       99.5 %
+## BMI 0.0002325459 0.0003848866</code></pre>
+<p>From this interval, the p-value is definately smaller than 1%, i.e. we have less than 1% confidence that there is zero relation between BMI and the systolic blood pressure. In fact, the p-value is extremely small as we can read off the table. The p-value simply says something about rejecting the nullhypothesis.</p>
+</div>
+<div id="d-prediction" class="section level2">
+<h2>d) Prediction</h2>
+<p>Considering the person described we use our estimators from model A in the equation from a). The best guess uses the estimators, and the value is <span class="math inline">\(\frac{-1}{\sqrt{SYSBP}} = -0.08667\)</span>, hence we guess his systolic blood pressure to be 133.12.</p>
+<p>We can use R to easily find a prediction interval for the persons SYSBP</p>
+<pre class="r"><code>names(data)</code></pre>
+<pre><code>## [1] &quot;SYSBP&quot;    &quot;SEX&quot;      &quot;AGE&quot;      &quot;CURSMOKE&quot; &quot;BMI&quot;      &quot;TOTCHOL&quot; 
+## [7] &quot;BPMEDS&quot;</code></pre>
+<pre class="r"><code>new=data.frame(SEX=1,AGE=56,CURSMOKE=1,BMI=89/1.75^2,TOTCHOL=200,BPMEDS=0)
+pred = predict(modelA,newdata = new, interval = &quot;predict&quot;, level = 0.90)
+pred</code></pre>
+<pre><code>##           fit         lwr         upr
+## 1 -0.08667246 -0.09625664 -0.07708829</code></pre>
+<pre class="r"><code>sysbPred = (-pred)^-2
+sysbPred</code></pre>
+<pre><code>##        fit      lwr      upr
+## 1 133.1183 107.9291 168.2764</code></pre>
+<p>After transforming the interval in the last lines we get the values (107.93, 168.28). We have 90% confidence in that the persons SYSBP is within these values, given that the person is drawn from the same population. This interval is rather large, and does not give any useful information about wether the persons blood pressure might be either normal, larger than or smaller than normal.</p>
+</div>
+</div>
+<div id="problem-3---classification" class="section level1">
+<h1>Problem 3 - Classification</h1>
+<p>For this tasks we will perform some classification schemes on a dataset consisting of two types of wine. We wish to show that:</p>
+<p><span class="math display">\[\text{logit}(p_i) = \text{log}(\frac{p_i}{1-p_i})\]</span></p>
+<p>This can be written as: <span class="math display">\[ \text{log}(p_i)-\text{log}(1-p_i).\]</span> We know that <span class="math inline">\(p_i\)</span> is:</p>
+<p><span class="math display">\[ p_i(Y_i=1|\bf{X}=x_i) = \frac{e^{\beta_0+\beta_1x_1+\beta_2x_2}}{1+e^{\beta_0+\beta_1x_1+\beta_2x_2}}.\]</span></p>
+<p>For simplicity we choose <span class="math inline">\(\beta_0+\beta_1x_1+\beta_2x_2\)</span> to be <span class="math inline">\(\alpha\)</span>. We insert <span class="math inline">\(p_i\)</span> into the equation and get:</p>
+<p><span class="math display">\[ \text{log}\bigg(\frac{e^{\alpha}}{1+e^{\alpha}}\bigg)-\text{log}\bigg(1-\frac{e^{\alpha}}{1+e^{\alpha}}\bigg) = \text{log}\bigg(\frac{e^{\alpha}}{1+e^{\alpha}}\bigg) - \text{log}\bigg(\frac{1}{1+e^{\alpha}}\bigg) = \text{log}(e^{\alpha})=\alpha\]</span></p>
+<p>Thus <span class="math inline">\(\text{logit}(p_i)\)</span> is linear.</p>
+<pre class="r"><code>library(ggplot2)
+library(GGally)
+library(class)
+library(MASS)
+library(pROC)
+
+wine=read.csv(&quot;https://www.math.ntnu.no/emner/TMA4268/2018v/data/Comp1Wine.csv&quot;,sep=&quot; &quot;)
+wine$class=as.factor(wine$class-1)
+colnames(wine)=c(&quot;y&quot;,&quot;x1&quot;,&quot;x2&quot;)
+ggpairs(wine, ggplot2::aes(color=y))</code></pre>
+<p><img src="project1_files/figure-html/load_data-1.png" width="672" /></p>
+<pre class="r"><code># Divide data into test-, and training set
+n = dim(wine)[1]
+set.seed(4268) #to get the same order if you rerun - but you change this to your favorite number
+ord = sample(1:n) #shuffle 
+test = wine[ord[1:(n/2)],]
+train = wine[ord[((n/2)+1):n],]</code></pre>
+<p>##a) Logistic Regression</p>
+<pre class="r"><code># Some functions for calculating 
+
+# Linear relation
+log.eta &lt;- function(dataset, fit.model)
+{
+  beta = unlist(fit.model$coefficients)
+  X = c(1, unlist(dataset[ c(&#39;x1&#39;, &#39;x2&#39;)] ) )
+  return( X %*% beta)
+}
+
+# Posterior probability
+log.prob &lt;- function(dataset, fit.model)
+{
+  e = log.eta(dataset, fit.model)
+  return( exp(e)/(1 + exp(e)) )
+}
+
+# Find intercept and slope of decision bound
+log.decision_bound &lt;- function(dataset, fit.model)
+{
+  beta = as.matrix(fit.model$coefficients)
+  intercept = -beta[1]/beta[3]
+  slope = -beta[2]/beta[3]
+  v = c(intercept, slope)
+  names(v) = c(&quot;Intercept&quot;, &quot;Slope&quot;)
+  return( v )
+}
+
+# Error rate, sensitivity, specificity
+error_rate &lt;- function(confusion){1 - sum(diag(confusion))/(sum(confusion))}
+sensitivity &lt;- function(confusion){confusion[&#39;1&#39;,&#39;1&#39;]/sum(confusion[,&#39;1&#39;])}
+specificity &lt;- function(confusion){confusion[&#39;0&#39;,&#39;0&#39;]/sum(confusion[,&#39;0&#39;])}
+
+rates &lt;- function(confusion) 
+{
+  rates &lt;- c(error_rate(confusion), specificity(confusion), sensitivity(confusion))
+  names(rates) &lt;- c(&quot;Error rates&quot;, &quot;Specificity&quot;, &quot;Sensitivity&quot;)
+  return(rates)
+}
+
+
+# Create fit model.
+log.fit = glm(y ~ x1 + x2, family = &quot;binomial&quot;, data = train)
+summary(log.fit)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = y ~ x1 + x2, family = &quot;binomial&quot;, data = train)
+## 
+## Deviance Residuals: 
+##      Min        1Q    Median        3Q       Max  
+## -1.54026  -0.22362   0.04062   0.17637   2.61890  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)   0.6772     2.9794   0.227 0.820201    
+## x1            0.4889     0.1872   2.612 0.008993 ** 
+## x2           -2.1524     0.5781  -3.723 0.000197 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 89.354  on 64  degrees of freedom
+## Residual deviance: 27.762  on 62  degrees of freedom
+## AIC: 33.762
+## 
+## Number of Fisher Scoring iterations: 7</code></pre>
+<pre class="r"><code># Evaluation training set.
+train.prob = predict(log.fit, type = &quot;response&quot;)
+train.pred = ifelse(train.prob &gt;  0.5, 1, 0)
+train.conf = table(train$y, train.pred)
+
+# Evaluation test set
+log.test.prob = predict(log.fit, newdata = test, type = &quot;response&quot;)
+log.test.pred = ifelse(log.test.prob &gt; 0.5, 1, 0)
+log.test.conf = table(test$y, log.test.pred)
+
+# Calculate decision boundary.
+log.bound = log.decision_bound(train, log.fit)
+
+# Plot datapoints, and decision boundary.
+g1 = ggplot( data = train, aes(x = x1, y = x2, colour=y) ) + geom_point(pch = 1)
+g1 + geom_point( data = test, pch = 3 ) + geom_abline( slope=log.bound[&#39;Slope&#39;], intercept = log.bound[&#39;Intercept&#39;]) + ggtitle(&quot;Train and test and logistic boundary&quot;)</code></pre>
+<p><img src="project1_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<pre class="r"><code># Calculate estimated posterior probability in given point.
+log.prob(list(x1 = 17, x2 = 3), log.fit)</code></pre>
+<pre><code>##           [,1]
+## [1,] 0.9263574</code></pre>
+<pre class="r"><code>train.conf</code></pre>
+<pre><code>##    train.pred
+##      0  1
+##   0 25  4
+##   1  3 33</code></pre>
+<pre class="r"><code>rates(train.conf)</code></pre>
+<pre><code>## Error rates Specificity Sensitivity 
+##   0.1076923   0.8928571   0.8918919</code></pre>
+<pre class="r"><code>log.test.conf</code></pre>
+<pre><code>##    log.test.pred
+##      0  1
+##   0 21  9
+##   1  1 34</code></pre>
+<pre class="r"><code>rates(log.test.conf)</code></pre>
+<pre><code>## Error rates Specificity Sensitivity 
+##   0.1538462   0.9545455   0.7906977</code></pre>
+<p><span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span> represent the change in log-odds ascociated with one unit increase in <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> respectivly. Or equivalently it multiplies the odds by <span class="math inline">\(e^{\beta_1}\)</span> and <span class="math inline">\(e^{\beta_2}\)</span> with one unit increase in <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> respectivly. Since the relationships between <span class="math inline">\(p(x_1,x_2)\)</span> and <span class="math inline">\((x_1,x_2)\)</span> is not a straight line, <span class="math inline">\(\beta_{1}\)</span> and <span class="math inline">\(\beta_2\)</span> does not correspond to the change in <span class="math inline">\(p(x_1,x_2)\)</span>.</p>
+<p>The class boundry is given by the line:</p>
+<p><span class="math display">\[x_2 = \frac{-\beta_0-\beta_1x_1}{\beta_2}\]</span> This is a linear boundry. If a point is over this line it is classified as class 0 and class 1 if the point is under.</p>
+<p>We can read off <span class="math inline">\(\beta_0,\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span> from the summary function for fit. Then insert all the values into</p>
+<p><span class="math display">\[\hat{Pr}_i(Y=1|x_1=17,x_2=3) = \frac{e^{\beta_0+\beta_1x_1+\beta_2x_2}}{1+e^{\beta_0+\beta_1x_1+\beta_2x_2}}.\]</span></p>
+<p>This yields <span class="math inline">\(\hat{Pr}_i(Y=1|x_1=17,x_2=3) = 0.9289.\)</span> A wine with alchalinity 17 and color 3 has a high probability of being class 1.</p>
+<p>The sensitivity is the proportion of correctly classified positive observations and specificity is the proportion of correctly classified negative observations. Our classifier had a sensetivity of 85.7% and a specificity of 83.3 % which is satisfactory.</p>
+<p>##b) KNN-classifier In this task we predict the classes of the test set observations, using a KNN classifier for <span class="math inline">\(K = 3\)</span> and <span class="math inline">\(K = 9\)</span> points. To perform this, we use the following estimation for the posterior probability:</p>
+<p><span class="math display">\[
+P(Y=j|X=x_0) = \frac{1}{K}\sum_{i\in \mathcal{N_0}}I(y_i=j).
+\]</span></p>
+<p>This expression estimates the posterior probability that a new datapoint <span class="math inline">\(x_0\)</span> is coming from class <span class="math inline">\(j\)</span>, by searching the training set for the <span class="math inline">\(K\)</span> datapoints that is closest to <span class="math inline">\(x_0\)</span> in euclidian distance, and calculating the amount of these which comes from class <span class="math inline">\(j\)</span>. Define <span class="math inline">\(r_K := ||x_{(K)}-x_0||_2\)</span>, where <span class="math inline">\(x_{(K)}\)</span> is the <span class="math inline">\(K\)</span>-th closest point to <span class="math inline">\(x_0\)</span>. If there are multiple points at the same distance, let <span class="math inline">\(x_{(K)}\)</span> be the lowest indexed observation amongst these. Then <span class="math inline">\(\mathcal{N_0} = \{y\in\mathbb{R}^2: ||y-x_0||&lt;r_k\}\cup\{x_{(K)}\}\)</span> describes the open disk around <span class="math inline">\(x_0\)</span> which contains the <span class="math inline">\(K-1\)</span> closest points, and the <span class="math inline">\(K\)</span>-th closest point. <span class="math inline">\(I(y_i=1)\)</span> is an indicator random variable, that equals 1 if the class of an observation in the neighbourhood <span class="math inline">\(\mathcal{N_0}\)</span> is 1, and 0 otherwise. In other words, this expression counts the number of class <span class="math inline">\(j\)</span> observations among the <span class="math inline">\(K\)</span> closest points in the training set around <span class="math inline">\(x_0\)</span>, and divides by the number of points <span class="math inline">\(K\)</span>.</p>
+<p>Using the expression above to estimate the posterior probabilities of the test data points, the KNN function the classifies a given datapoint to the class which has the highest probability. Since the wine data set only contains two classes, a point is classified as class 1 if the probability exceeds 0.5.</p>
+<p>In this code snippet, KNN classification is used on our dataset for <span class="math inline">\(K=3\)</span> and <span class="math inline">\(K=9\)</span>:</p>
+<pre class="r"><code># Order data for KNN-function
+KNN.train = as.matrix(train[c(&#39;x1&#39;, &#39;x2&#39;)])
+KNN.test = as.matrix(test[c(&#39;x1&#39;, &#39;x2&#39;)])
+
+# Perform KNN classifier for different K-values
+KNN3 = knn(train = KNN.train, test = KNN.test, cl = train$y, k = 3, prob = T)
+KNN9 = knn(train = KNN.train, test = KNN.test, cl = train$y, k = 9, prob = T)
+
+# Set up confusion matrices
+KNN3.conf = table(KNN3, test$y)
+KNN9.conf = table(KNN9, test$y)
+
+KNN3.conf</code></pre>
+<pre><code>##     
+## KNN3  0  1
+##    0 21  3
+##    1  9 32</code></pre>
+<pre class="r"><code>rates(KNN3.conf)</code></pre>
+<pre><code>## Error rates Specificity Sensitivity 
+##   0.1846154   0.7000000   0.9142857</code></pre>
+<pre class="r"><code>KNN9.conf</code></pre>
+<pre><code>##     
+## KNN9  0  1
+##    0 23  5
+##    1  7 30</code></pre>
+<pre class="r"><code>rates(KNN9.conf)</code></pre>
+<pre><code>## Error rates Specificity Sensitivity 
+##   0.1846154   0.7666667   0.8571429</code></pre>
+<p>From the results, we can see that KNN for <span class="math inline">\(K = 3\)</span> performs better than with <span class="math inline">\(K=9\)</span>. If we had chosen K-values lower then 3 we would get a lower sensitivity and specificity. This is another example of the bias-variance tradeoff. Choosing <span class="math inline">\(K\)</span> too low will result in overfitting, while, choosing <span class="math inline">\(K\)</span> too high will result in a biased classifier that does not account for small trends in the dataset.</p>
+<div id="c-lda-classifier" class="section level2">
+<h2>c) LDA classifier</h2>
+<p><span class="math inline">\(\pi_k\)</span> is the prior probability, that is the probability that a random chosen variable <span class="math inline">\(\mathbf{X}\)</span> is in class <span class="math inline">\(k\)</span>.</p>
+<p>where N is the total number of variables. <span class="math inline">\(\mathbf{\mu}_k\)</span> is the mean vector of class <span class="math inline">\(k\)</span>.</p>
+<p><span class="math display">\[ \mathbf{\mu}_k = \left(\begin{array}{cc} 
+E(x_1) \\
+E(x_2)
+\end{array}\right)\]</span></p>
+<p><span class="math inline">\(\mathbf{\Sigma}\)</span> is the symmetric covariance matrix. It is not class specific.</p>
+<p><span class="math display">\[ \boldsymbol{\Sigma} = 
+\left(\begin{array}{cc} 
+\sigma_1^2 &amp; \sigma_{12} \\
+\sigma_{12} &amp; \sigma_2^2
+\end{array}\right)
+\]</span> Where <span class="math inline">\(\sigma_i\)</span> is the standard diviation in <span class="math inline">\(x_i\)</span> and <span class="math inline">\(\sigma_{12}\)</span> is the covariance between <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>, <span class="math inline">\(\text{Cov}(x_1,x_2)\)</span>.</p>
+<p><span class="math inline">\(f_k(x)\)</span> is the density function of <span class="math inline">\(X\)</span> for an observation that comes from class k.</p>
+<p>We can estimate <span class="math inline">\(\hat\pi\)</span>, <span class="math inline">\(\hat\mu\)</span> and <span class="math inline">\(\hat\Sigma\)</span> like this:</p>
+<p><span class="math display">\[ \hat\pi_k = \frac{n_k}{N}\]</span></p>
+<p><span class="math display">\[\mathbf{\hat\mu}_k = \frac{1}{n_k}\sum_{i:y_i\neq k}x_i\]</span></p>
+<p><span class="math display">\[\hat{\boldsymbol{\Sigma}}_k=\frac{1}{n_k-1}\sum_{i:y_i=k} ({\bf X}_i-\hat{\boldsymbol{\mu}}_k ) ({\bf X}_i-\hat{\boldsymbol{\mu}}_k)^T\]</span></p>
+<p><span class="math display">\[\mathbf{\hat\Sigma} = \sum_{k=1}^{K}\frac{n_k-1}{n-K}\mathbf{\hat\Sigma_k}\]</span></p>
+<p><span class="math inline">\(\pi_k\)</span> is the prior probability, that is the probability that a random chosen variable is in class <span class="math inline">\(k\)</span>.</p>
+<p>where N is the total number of variables. <span class="math inline">\(\mathbf{\mu}_k\)</span> is the mean vector of class <span class="math inline">\(k\)</span>.</p>
+<p><span class="math display">\[ \mathbf{\mu}_k = \left(\begin{array}{cc} 
+E(x_1) \\
+E(x_2)
+\end{array}\right)\]</span></p>
+<p><span class="math inline">\(\mathbf{\Sigma}\)</span> is the symmetric covariance matrix. It is not class specific.</p>
+<p><span class="math display">\[ \boldsymbol{\Sigma} = 
+\left(\begin{array}{cc} 
+\sigma_1^2 &amp; \sigma_{12} \\
+\sigma_{12} &amp; \sigma_2^2
+\end{array}\right)
+\]</span> Where <span class="math inline">\(\sigma_i\)</span> is the standard diviation in <span class="math inline">\(x_i\)</span> and <span class="math inline">\(\sigma_{12}\)</span> is the covariance between <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>, <span class="math inline">\(\text{Cov}(x_1,x_2)\)</span>.</p>
+<p><span class="math inline">\(f_k(x)\)</span> is the density function of <span class="math inline">\(X\)</span> for an observation that comes from class k.</p>
+<p>We can estimate <span class="math inline">\(\hat\pi\)</span>, <span class="math inline">\(\hat\mu\)</span> and <span class="math inline">\(\hat\Sigma\)</span> like this:</p>
+<p><span class="math display">\[ \hat\pi_k = \frac{n_k}{N}\]</span> <span class="math display">\[\mathbf{\hat\mu}_k = \frac{1}{n_k}\sum_{i:y_i\neq k}x_i\]</span> <span class="math display">\[\hat{\boldsymbol{\Sigma}}_k=\frac{1}{n_k-1}\sum_{i:y_i=k} ({\bf X}_i-\hat{\boldsymbol{\mu}}_k ) ({\bf X}_i-\hat{\boldsymbol{\mu}}_k)^T\]</span> <span class="math display">\[\mathbf{\hat\Sigma} = \sum_{k=1}^{K}\frac{n_k-1}{n-K}\mathbf{\hat\Sigma_k}\]</span> <span class="math display">\[\begin{align}
+Pr(Y=0|\mathbf{X}=\mathbf{x}) &amp;= Pr(Y=1|\mathbf{X}=\mathbf{x}) \\
+\frac{\pi_0e^{-\frac{1}{2}(x-\mathbf{\mu_0})^T\mathbf{\Sigma}^{-1}(x-\mathbf{\mu_0})}}{(2\pi)\lvert\mathbf\Sigma \rvert^{\frac{1}{2}}(\pi_0f_0(x)+\pi_1f_1(x))} &amp;= \frac{\pi_1e^{-\frac{1}{2}(x-\mathbf{\mu_1})^T\mathbf{\Sigma}^{-1}(x-\mathbf{\mu_1})}}{(2\pi)\lvert\mathbf\Sigma \rvert^{\frac{1}{2}}(\pi_0f_0(x)+\pi_1f_1(x))} \\
+\text{log}(\pi_0)-\frac{1}{2}(x-\mathbf{\mu_0})^T\mathbf{\Sigma}^{-1}(x-\mathbf{\mu_0}) &amp;=\\
+\text{log}(\pi_1)-\frac{1}{2}(x-\mathbf{\mu_1})^T\mathbf{\Sigma}^{-1}(x-\mathbf{\mu_1}) \\ 
+\text{log}(\pi_0)-\frac{1}{2}(x-\mathbf{\mu_0})^T(\mathbf{\Sigma}^{-1}x-\mathbf{\Sigma}^{-1}\mathbf{\mu_0}) &amp;=\\
+\text{log}(\pi_1)-\frac{1}{2}(x-\mathbf{\mu_1})^T(\mathbf{\Sigma}^{-1}x-\mathbf{\Sigma}^{-1}\mathbf{\mu_1}) \\
+\text{log}(\pi_0)-\frac{1}{2}(x^T\mathbf{\Sigma}^{-1}x-x^T\mathbf{\Sigma}^{-1}\mathbf{\mu}_0-\mathbf{\mu}_0^T\mathbf{\Sigma}^{-1}x+\mathbf{\mu}_0^T\mathbf{\Sigma}^{-1}\mathbf{\mu}_0) &amp;= \\ \text{Log}(\pi_1)-\frac{1}{2}(x^T\mathbf{\Sigma}^{-1}x-x^T\mathbf{\Sigma}^{-1}\mathbf{\mu}_1-\mathbf{\mu}_1^T\mathbf{\Sigma}^{-1}x+\mathbf{\mu}_1^T\mathbf{\Sigma}^{-1}\mathbf{\mu}_1) \\
+\text{Log}(\pi_0)-\frac{1}{2}(-x^T\mathbf{\Sigma}^{-1}\mathbf{\mu}_0-\mathbf{\mu}_0^T\mathbf{\Sigma}^{-1}x+\mathbf{\mu}_0^T\mathbf{\Sigma}^{-1}\mathbf{\mu}_0) &amp;=\\
+\text{Log}(\pi_1)-\frac{1}{2}(-x^T\mathbf{\Sigma}^{-1}\mathbf{\mu}_1-\mathbf{\mu}_1^T\mathbf{\Sigma}^{-1}x+\mathbf{\mu}_1^T\mathbf{\Sigma}^{-1}\mathbf{\mu}_1) \\
+x^T\mathbf{\Sigma}^{-1}\mathbf{\mu}_0 &amp;=\mathbf{\mu}_0^T\mathbf{\Sigma}^{-1}x \\
+\text{Log}(\pi_0)+x^T\mathbf{\Sigma}^{-1}\mathbf{\mu}_0-\frac{1}{2}\mathbf{\mu}_0^T\mathbf{\Sigma}^{-1}\mathbf{\mu}_0 &amp;= \text{Log}(\pi_1)+x^T\mathbf{\Sigma}^{-1}\mathbf{\mu}_1-\frac{1}{2}\mathbf{\mu}_1^T\mathbf{\Sigma}^{-1}\mathbf{\mu}_1 \\
+\delta_0 &amp;= \delta_1
+\end{align}\]</span></p>
+<p>By setting the discriminant functions for the two classes equal to each other, we may find an explicit expression for the decision boundary: <span class="math display">\[
+x_2 = -\frac{A_1}{A_2}x_1 + (b_1-b_0) + \text{log}\bigg(\frac{\pi_1}{\pi_0}\bigg)
+\]</span> where <span class="math inline">\(A_i\)</span> is the <span class="math inline">\(i\)</span>-th entry of <span class="math inline">\(A = \Sigma^{-1}(\mu_0 - \mu_k)\)</span> and <span class="math inline">\(b_k=-\frac{1}{2}\mu_k^T\Sigma^{-1}\mu_k\)</span>.</p>
+<pre class="r"><code># Function to calculate slope and intercept of decision boundary
+lda.decision_bound &lt;- function(dataset, lda.fit, bound_value = 0.5)
+{
+  class1 = dataset$y == 1
+  X = dataset[c(&#39;x1&#39;, &#39;x2&#39;)]
+  
+  n0 = nrow(X[!class1,])
+  n1 = nrow(X[class1,])
+  
+  mu = lda.fit$means
+  
+  S0 = cov(X[!class1,])
+  S1 = cov(X[class1,])
+    S = 1/(n0 + n1 - 2) * ((n0-1) * S0 + (n1-1) * S1)
+  S.inv = solve(S)
+  
+  A = S.inv %*% (mu[&#39;0&#39;,] - mu[&#39;1&#39;,])
+  b0 = -1/2 * (t(mu[&#39;0&#39;,]) %*% S.inv %*% mu[&#39;0&#39;,])
+  b1 = -1/2 * (t(mu[&#39;1&#39;,]) %*% S.inv %*% mu[&#39;1&#39;,])
+  
+  intercept = ( b1 - b0 + log(lda.fit$prior[&#39;1&#39;]/lda.fit$prior[&#39;0&#39;]) ) / A[2]
+  slope = -A[1]/A[2]
+  v = c(intercept, slope)
+  names(v) = c(&quot;Intercept&quot;, &quot;Slope&quot;)
+  
+  return(v)
+}
+
+# Fit lda-model
+wine.lda = lda(y ~ x1 + x2, data = train)
+
+lda.test.pred = predict(wine.lda, newdata = test)
+lda.test.conf = table(test$y, lda.test.pred$class)
+
+# Find slope and intercept of decision boundary.
+lda.bound = lda.decision_bound(train, wine.lda)
+
+# Plot datapoints, and decision boundary.
+g2 = ggplot( data = train, aes(x = x1, y = x2, colour=y) ) + geom_point(pch = 1)
+g2 + geom_point( data = test, pch = 3 ) + geom_abline( slope=lda.bound[&#39;Slope&#39;], intercept = lda.bound[&#39;Intercept&#39;]) + ggtitle(&quot;Training- and test data, and LDA-boundary&quot;)</code></pre>
+<p><img src="project1_files/figure-html/LDA-1.png" width="672" /></p>
+<pre class="r"><code>lda.test.conf</code></pre>
+<pre><code>##    
+##      0  1
+##   0 21  9
+##   1  1 34</code></pre>
+<pre class="r"><code>rates(lda.test.conf) # Confusion matrix test data</code></pre>
+<pre><code>## Error rates Specificity Sensitivity 
+##   0.1538462   0.9545455   0.7906977</code></pre>
+<p>When performing LDA on our data, we assume that the different classes has the same covariance matrix which is estimated as given above. If we were to assume two different covariance-matrices for each of the classes the results would differ. This will have some consequences for our classifier. Since the covariance matrices are different for different classes, the discrimant function becomes</p>
+<p><span class="math display">\[
+ \delta_k(x) =  -\frac{1}{2} x^T \boldsymbol{\Sigma}_k^{-1}x + x^T \boldsymbol{\Sigma}_k^{-1}\mu_k - \frac{1}{2} \mu_k^T \boldsymbol{\Sigma}_k^{-1}\mu_k - \frac{1}{2}\log |\boldsymbol{\Sigma}_k | + \log \pi_k.
+\]</span> this discriminant function is quadratic in <span class="math inline">\(x\)</span>. If we were to draw the QDA decisison boundary in our plot, it would be curved as a parabola, rather than linear as the LDA decision boundary.</p>
+<p>##d) Classifier Comparison &amp; ROC In the previous tasks we’ve used Logsitic regression, KNN and LDA methods to estimate the probability of a given datapoint coming from a given class, and classified the point to the class which has the highest probability. Since we just have two classes, a point is classified as class 1 if our estimate of <span class="math inline">\(\text{P}(Y=|x=x_o) &lt; 0.5\)</span>. Their performance on our test set is as follows:</p>
+<pre class="r"><code>rates(log.test.conf) # Logistic regression</code></pre>
+<pre><code>## Error rates Specificity Sensitivity 
+##   0.1538462   0.9545455   0.7906977</code></pre>
+<pre class="r"><code>rates(KNN3.conf) # KNN with K =3</code></pre>
+<pre><code>## Error rates Specificity Sensitivity 
+##   0.1846154   0.7000000   0.9142857</code></pre>
+<pre class="r"><code>rates(lda.test.conf) # LDA</code></pre>
+<pre><code>## Error rates Specificity Sensitivity 
+##   0.1538462   0.9545455   0.7906977</code></pre>
+<p>From these numbers, our KNN classifier performs best overall, whilst our LDA classifier comes out last. The KNN classifier makes no assumptions about the shape of our decision boundary. Since both logistic regression and LDA assumes a linear decision boundary, its probable that we should use a more flexible classifier. The LDA classifier makes the assumprtion that the two classes are normally distributed with the same covariance matrix. By looking at the <code>gpairs</code> plot at the start of this task, it seems the assumption of normally distributed predictors holds up okay at best, but the standard deviation of the predictors is different in both <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>. A QDA would probably make a better prediciton for this data.</p>
+<p>Since both the LDA and logistic regression calssifiers assumes a linear decision boundary, these classifiers often performs similar. The coefficients of the boundaries are given by:</p>
+<pre class="r"><code>log.bound</code></pre>
+<pre><code>## Intercept     Slope 
+## 0.3146150 0.2271624</code></pre>
+<pre class="r"><code>lda.bound</code></pre>
+<pre><code>## Intercept     Slope 
+## 0.8104984 0.2008623</code></pre>
+<p>The LDA-boundary has a slightly higher intercept, and a bit steeper slope than the logistic regression boundary. This seems like another indicator that the assumptions of the lda classifier does not hold as expected.</p>
+<p>Previously all the classifiers have been tested only for a 0.5 cut-off probability. If a misclassification of one of the classes may have large consequences, we may want to adjust the treshold probabilities, which may change both the sensitivity and specificity of the classifiers. The overall performance of a classifier should also take account of this, as an increase in specificity usually leads to a decrease in sensitivity &amp; vice versa. An ROC curve displays this relation by plotting specificity on the x-axis against the sensitivity on the y-axis. Ideally this curve should hug the upper left corner, which indicates a low false positive rate and a high true positive rate (here <span class="math inline">\(-/+\)</span> is defined by <span class="math inline">\(0/1\)</span>). Thus we want our classifier to have as large an area under the curve as possible, and the overall performance of a classifier may be evaluated by the “Area Under the Curve” or AUC. Below are the ROC curves for the different classifiers, and the AUC.</p>
+<pre class="r"><code># Logistic classifier
+glmroc = pROC::roc(response=test$y, predictor=log.test.prob)
+
+# KNN classifier
+KNN3probwinning = attributes(knn(train = train[,-1], test = test[,-1], k = 3, cl = train$y, prob = T))$prob
+KNN3prob &lt;- ifelse(KNN3 == &quot;0&quot;, 1 - KNN3probwinning, KNN3probwinning)
+KNN3roc = pROC::roc(response=test$y, predictor = KNN3prob)
+
+# LDA classifier
+lroc = pROC::roc(response=test$y, lda.test.pred$posterior[,1])
+
+plot(glmroc, main = &quot;ROC curve for logistic regression.&quot;)</code></pre>
+<p><img src="project1_files/figure-html/ROC-1.png" width="672" /></p>
+<pre class="r"><code>plot(KNN3roc, main = &quot;ROC curve for KNN, K = 3.&quot;)</code></pre>
+<p><img src="project1_files/figure-html/ROC-2.png" width="672" /></p>
+<pre class="r"><code>plot(lroc, main = &quot;ROC curve for LDA.&quot;)</code></pre>
+<p><img src="project1_files/figure-html/ROC-3.png" width="672" /></p>
+<pre class="r"><code>AUC = c(pROC::auc(glmroc), auc(KNN3roc), auc(lroc))
+names(AUC) &lt;- c(&quot;GLM&quot;, &quot;KNN-3&quot;, &quot;LDA&quot;)
+AUC</code></pre>
+<pre><code>##       GLM     KNN-3       LDA 
+## 0.9266667 0.8442857 0.9314286</code></pre>
+<p>All of the classifiers has an AUC-value over 0.9 which we consider to be good.</p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
