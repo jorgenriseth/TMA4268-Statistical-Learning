@@ -7,6 +7,3 @@ navbar:
       href: index.html
     - text: "Untitled"
       href: Untitled.html
-output:
-    html_document:
-theme: cosmo
